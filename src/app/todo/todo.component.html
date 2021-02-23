@@ -1,0 +1,11 @@
+<h3>Todos List!</h3>
+
+<form [formGroup]="todosForm" (ngSubmit)="onSubmit()">
+    <input type="text" name="title" formControlName="title">
+
+    <button type="submit">Add Todo</button>
+</form>
+
+<ul *ngIf="todos">
+    <li *ngFor="let todo of todos">{{todo.title}} <span><input type="checkbox" name="finished" [checked]="todo.finished" (click)="markCompleted(todo)"></span></li>
+</ul>
